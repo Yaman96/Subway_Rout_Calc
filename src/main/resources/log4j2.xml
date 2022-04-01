@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="invalid_stations" fileName="logs/invalid_stations.log" immediateFlush="true">
+            <PatternLayout pattern="%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="INVALID_STATIONS" />
+            </Filters>
+        </File>
+
+        <File name="input_history" fileName="logs/input_history.log" immediateFlush="true">
+            <PatternLayout pattern="%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="INPUT_HISTORY" />
+            </Filters>
+        </File>
+
+        <File name="exceptions" fileName="logs/exceptions.log" immediateFlush="true">
+            <PatternLayout pattern="%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="EXCEPTIONS" />
+            </Filters>
+        </File>
+
+    </appenders>
+    <loggers>
+
+        <root level="info">
+<!--            <appender-ref ref="Console"/>-->
+            <appender-ref ref="invalid_stations"/>
+            <appender-ref ref="input_history"/>
+            <appender-ref ref="exceptions"/>
+        </root>
+
+    </loggers>
+</configuration>
